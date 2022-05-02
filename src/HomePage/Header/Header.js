@@ -7,10 +7,10 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 
 
 const navigation = [
-  { name: 'Manage Items', href: '#', current: true },
-  { name: 'Add Items', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  {name: 'Home',href:'/', current: true},
+  { name: 'Manage Items', href: '/manage-items', current: false },
+  { name: 'Add Items', href: '/add-items', current: false },
+
 ]
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
