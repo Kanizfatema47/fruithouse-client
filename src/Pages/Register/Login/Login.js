@@ -1,6 +1,7 @@
 import React from 'react';
 import { LockClosedIcon } from '@heroicons/react/outline';
 import { Link } from 'react-router-dom';
+import SocialIcons from '../SocialIcons/SocialIcons';
 const Login = () => {
     return (
         <>
@@ -17,7 +18,7 @@ const Login = () => {
           <div>
             <img
               className="mx-auto h-12 w-auto"
-              src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+              src="https://pixabay.com/get/g9f9c1a3cae8dc5c8111c418588365f054f7c5036017c3870723499ae2d7fb36b63006ccbf5148c66c32aad8cbc66f517dacd9946de1b7dd7f5ec6141700593189afe9ab42b8ad48f9029c9b26fd6d6af_640.jpg"
               alt="Workflow"
             />
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
@@ -74,10 +75,10 @@ const Login = () => {
                   Forgot your password?
                 </a>
               </div>
+              
             </div>
-              <div>
-                <p>Need Register? <Link className="font-medium text-indigo-600 hover:text-indigo-500" to='/register'>Register</Link></p>
-              </div>
+            
+              
             <div>
               <button
                 type="submit"
@@ -89,6 +90,11 @@ const Login = () => {
                 Sign in
               </button>
             </div>
+            <p>Or login with</p>
+            <SocialIcons></SocialIcons>
+            <div>
+                <p>New on this site? <Link to='/register' className="font-medium text-indigo-600 hover:text-indigo-500" >Register here</Link></p>
+              </div>
           </form>
         </div>
       </div>

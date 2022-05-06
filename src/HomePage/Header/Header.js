@@ -7,9 +7,11 @@ import { Disclosure, Menu, Transition } from '@headlessui/react';
 
 
 const navigation = [
-  {name: 'Home',href:'/', current: true},
+  {name: 'Home', href:'/', current: true},
   { name: 'Manage Items', href: '/manage-items', current: false },
   { name: 'Add Items', href: '/add-items', current: false },
+  { name: 'Blogs', href: '/blogs', current: false },
+  { name: 'Contact Us', href: '/contact-us', current: false },
 
 ]
 function classNames(...classes) {
