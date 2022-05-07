@@ -1,9 +1,30 @@
 import { LockClosedIcon } from '@heroicons/react/outline';
-import React from 'react';
+import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import SocialIcons from '../SocialIcons/SocialIcons';
+import auth from '../../../firebase.init';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+
 
 const SignUp = () => {
+
+    
+    const nameRef = useRef()
+    const emailRef = useRef();
+    const passwordRef = useRef()
+
+
+    const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const name = nameRef.current.value;
+        const email = emailRef.current.value;
+        const password = passwordRef.current.value;
+        console.log(name, email, password)
+        createUserWithEmailAndPassword(email, password);
+    }
+
     return (
         <>
            
@@ -18,7 +39,7 @@ const SignUp = () => {
                         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Create Account</h2>
 
                     </div>
-                    <form className="mt-8 space-y-6" action="#" method="POST">
+                    <form onSubmit={handleSubmit} className="mt-8 space-y-6" action="#" method="POST">
                         <input type="hidden" name="remember" defaultValue="true" />
                         <div className="rounded-md shadow-sm -space-y-px">
                             <div>
@@ -27,6 +48,7 @@ const SignUp = () => {
                                 </label>
                                 <input
                                     id="name"
+                                    ref={nameRef}
                                     name="name"
                                     type="text"
                                     autoComplete="name"
@@ -43,6 +65,7 @@ const SignUp = () => {
                                 <input
                                     id="email-address"
                                     name="email"
+                                    ref={emailRef}
                                     type="email"
                                     autoComplete="email"
                                     required
@@ -57,6 +80,7 @@ const SignUp = () => {
                                 <input
                                     id="password"
                                     name="password"
+                                    ref={passwordRef}
                                     type="password"
                                     autoComplete="current-password"
                                     required
@@ -68,8 +92,8 @@ const SignUp = () => {
 
                         
                         <div class="form-check">
-                            <input className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckChecked" checked/>
-                                <label className="form-check-label inline-block text-gray-800" for="flexCheckChecked">
+                            <input className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckChecked" />
+                                <label className="form-check-label inline-block text-gray-800" for="">
                                     I agree all statements in terms of service
                                 </label>
                             
@@ -85,6 +109,7 @@ const SignUp = () => {
                                 Sign in
                             </button>
                         </div>
+                        </form>
                         <p>Or Sign Up with</p>
                         <SocialIcons>
 
@@ -92,7 +117,7 @@ const SignUp = () => {
                         <div>
                             <p>Have already an account? <Link to='/login' className="font-medium text-indigo-600 hover:text-indigo-500">Login Here</Link></p>
                         </div>
-                    </form>
+                  
                 </div>
             </div>
         </>

@@ -1,11 +1,40 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { LockClosedIcon } from '@heroicons/react/outline';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import SocialIcons from '../SocialIcons/SocialIcons';
+import auth from '../../../firebase.init';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+
+
+
 const Login = () => {
-    return (
-        <>
-   
+  const emailRef = useRef();
+  const passwordRef = useRef();
+
+
+  const [
+    signInWithEmailAndPassword,
+    user,
+    loading,
+    error] = useSignInWithEmailAndPassword(auth);
+
+
+  const navigate = useNavigate();
+
+  if (user) {
+    navigate('/blogs');
+  }
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    signInWithEmailAndPassword(email, password)
+  }
+  return (
+    <>
+
       <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full space-y-8">
           <div>
@@ -15,9 +44,9 @@ const Login = () => {
               alt="Workflow"
             />
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
-           
+
           </div>
-          <form className="mt-8 space-y-6" action="#" method="POST">
+          <form onSubmit={handleSubmit} className="mt-8 space-y-6" action="#" method="POST">
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="rounded-md shadow-sm -space-y-px">
               <div>
@@ -26,6 +55,7 @@ const Login = () => {
                 </label>
                 <input
                   id="email-address"
+                  ref={emailRef}
                   name="email"
                   type="email"
                   autoComplete="email"
@@ -41,6 +71,7 @@ const Login = () => {
                 <input
                   id="password"
                   name="password"
+                  ref={passwordRef}
                   type="password"
                   autoComplete="current-password"
                   required
@@ -68,10 +99,10 @@ const Login = () => {
                   Forgot your password?
                 </a>
               </div>
-              
+
             </div>
-            
-              
+
+
             <div>
               <button
                 type="submit"
@@ -83,16 +114,17 @@ const Login = () => {
                 Sign in
               </button>
             </div>
-            <p>Or login with</p>
-            <SocialIcons></SocialIcons>
-            <div>
-                <p>New on this site? <Link to='/register' className="font-medium text-indigo-600 hover:text-indigo-500" >Register here</Link></p>
-              </div>
           </form>
+          <p>Or login with</p>
+          <SocialIcons></SocialIcons>
+          <div>
+            <p>New on this site? <Link to='/register' className="font-medium text-indigo-600 hover:text-indigo-500" >Register here</Link></p>
+          </div>
+
         </div>
       </div>
     </>
-    );
+  );
 };
 
 export default Login;

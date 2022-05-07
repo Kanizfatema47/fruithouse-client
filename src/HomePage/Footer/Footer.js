@@ -11,7 +11,7 @@ const Footer = () => {
                             focusable="false"
                             data-prefix="fab"
                             data-icon="facebook-f"
-                            class="w-2 h-full mx-auto"
+                            className="w-2 h-full mx-auto"
                             role="img"
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 320 512"
