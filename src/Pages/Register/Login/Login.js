@@ -4,7 +4,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialIcons from '../SocialIcons/SocialIcons';
 import auth from '../../../firebase.init';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import cherry from '../images/cherry.png'
 
 
@@ -142,12 +143,13 @@ const Login = () => {
             </div>
           </form>
           <div className="text-sm">
-                <button onClick={notify} className="btn btn-link font-medium text-indigo-600 hover:text-indigo-500">
+                <button onClick={notify} className="font-medium text-indigo-600 hover:text-indigo-500">
                   Forgot your password?
                 </button>
               </div>
           <p>Or login with</p>
           <SocialIcons></SocialIcons>
+          <ToastContainer></ToastContainer>
           <div>
             <p>New on this site? <Link to='/register' className="font-medium text-indigo-600 hover:text-indigo-500" >Register here</Link></p>
           </div>
