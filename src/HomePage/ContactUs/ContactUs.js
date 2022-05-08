@@ -1,19 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ContactUs = () => {
+
+    const [status, setStatus] = useState("Submit");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("Sending...");
+    const { name, email, message } = e.target.elements;
+    let details = {
+      name: name.value,
+      email: email.value,
+      message: message.value,
+    };
+    let response = await fetch("http://localhost:8000/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(details),
+    });
+    setStatus("Submit");
+    let result = await response.json();
+    alert(result.status);
+  }
+
     return (
 
         <section
-            className="py-20 px-4 lg:px-16 overflow-hidden relative z-10" data-aos="fade-up"
+            className="py-20 my-20 px-4 lg:px-16 overflow-hidden relative z-10" data-aos="fade-up"
             id="contact"
         >
             <div
                 className="container"
             >
                 <div
-                    className="mb-5 flex  m-auto text-center max-w-md"
+                    className="mb-5 flex mx-auto  text-right max-w-md"
                 >
-                    <h2 className="text-gray-700 text-center dark:text-gray-200 text-3xl font-bold"> Contact With Us</h2>
+                    <h2 className="text-gray-700 ml-20 dark:text-gray-200 text-3xl font-bold"> Contact With Us</h2>
                 </div>
                 <div
                     className="flex flex-col lg:flex-row lg:items-center text-slate-900 dark:text-gray-200 lg:justify-between -mx-4"
@@ -39,7 +62,7 @@ const ContactUs = () => {
                     </div>
                     <div className="w-full lg:w-1/2 xl:w-5/12 px-4" data-aos="fade-up" data-aos-delay="500" data-aos-duration="2000">
                         <div className="bg-gray-100 dark:bg-slate-800 relative rounded-lg p-8 sm:p-12 shadow-lg">
-                            <form>
+                            <form onSubmit={handleSubmit}>
                                 <div className="mb-6">
                                     <input
                                         type="text"
@@ -142,7 +165,7 @@ const ContactUs = () => {
                                     hover:bg-rose-700
                                     "
                                     >
-                                        Send Message
+                                        Send Message {status}
                                     </button>
                                 </div>
                             </form>
@@ -959,7 +982,7 @@ const ContactUs = () => {
                 </div>
             </div>
         </section>
-    );
+      );
 };
 
 export default ContactUs;
