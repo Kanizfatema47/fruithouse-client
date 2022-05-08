@@ -7,7 +7,7 @@ const ProductDtails = ({product}) => {
      const navigate = useNavigate();
 
      const navigattoproductDetails = (id) => {
-       navigate(`/inventory/${id}`);
+       navigate(`/manageitems/${id}`);
      };
     return (
         <div className="lg:w-1/4 flex justify-center flex-col items-center px-5 text-center border-solid border-2 mx-5 my-3">

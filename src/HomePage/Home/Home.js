@@ -1,5 +1,6 @@
 import React from 'react';
 import Accordion from '../../Pages/Accordion/Accordion';
+import Products from '../../Pages/Products/Products';
 import Login from '../../Pages/Register/Login/Login';
 import Banner from '../Banner/Banner';
 
@@ -9,8 +10,7 @@ const Home = () => {
             {/* <Header></Header>
             <Banner></Banner> */}
             <Banner></Banner>
-            <Login></Login>
-            <Accordion></Accordion>
+            <Products></Products>
         </div>
     );
 };

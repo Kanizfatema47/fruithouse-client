@@ -32,12 +32,12 @@ const Products = () => {
          <div className="flex  rounded-lg shadow-lg flex-wrap lg:flex-row justify-center lg:px-10 sm:flex flex-col sm:px-5">
            {products.slice(0, 6).map((items) => (
           
-             <ProductDtails key={items._id} product={items} />
+             <ProductDtails key={items.id} product={items} />
            ))}
          </div>
-         <Link to="/manageinventory">
+         <Link to="/manageitems">
            <button className="mx-5 bg-orange-600 text-white rounded-md px-2 py-2">
-             Manage Inventory
+             Manage Items
            </button>
          </Link>
        </div>

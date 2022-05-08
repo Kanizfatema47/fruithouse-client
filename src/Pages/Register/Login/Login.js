@@ -1,16 +1,20 @@
 import React, { useRef } from 'react';
 import { LockClosedIcon } from '@heroicons/react/outline';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import SocialIcons from '../SocialIcons/SocialIcons';
 import auth from '../../../firebase.init';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 
 
 
 const Login = () => {
+  let errorElement;
+
   const emailRef = useRef();
   const passwordRef = useRef();
-
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
 
   const [
     signInWithEmailAndPassword,
@@ -18,11 +22,34 @@ const Login = () => {
     loading,
     error] = useSignInWithEmailAndPassword(auth);
 
-
+  const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth)
   const navigate = useNavigate();
 
   if (user) {
     navigate('/blogs');
+  }
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (user) {
+    navigate(from, { replace: true });
+  }
+  if (error) {
+    errorElement = <p className="text-red">Error: {error?.message}</p>;
+  }
+
+  const notify = async () => {
+    const email = emailRef.current.value;
+
+    if (email) {
+      await sendPasswordResetEmail(email);
+      toast('Email has been sent');
+    }
+    else {
+      toast('Please Enter email address')
+    }
   }
 
 
@@ -32,6 +59,9 @@ const Login = () => {
     const password = passwordRef.current.value;
     signInWithEmailAndPassword(email, password)
   }
+
+
+
   return (
     <>
 
@@ -93,12 +123,8 @@ const Login = () => {
                   Remember me
                 </label>
               </div>
-
-              <div className="text-sm">
-                <a href="#" className="font-medium text-indigo-600 hover:text-indigo-500">
-                  Forgot your password?
-                </a>
-              </div>
+              {errorElement}
+            
 
             </div>
 
@@ -115,6 +141,11 @@ const Login = () => {
               </button>
             </div>
           </form>
+          <div className="text-sm">
+                <button onClick={notify} className="font-medium text-indigo-600 hover:text-indigo-500">
+                  Forgot your password?
+                </button>
+              </div>
           <p>Or login with</p>
           <SocialIcons></SocialIcons>
           <div>
