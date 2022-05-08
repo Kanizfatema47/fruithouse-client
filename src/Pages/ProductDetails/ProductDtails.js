@@ -31,7 +31,7 @@ const ProductDtails = ({product}) => {
         </span>
 
         <button
-          className=" mb-3 bg-orange-600 text-white rounded-md px-2 py-2"
+          className=" mb-3 bg-rose-500 text-white rounded-md px-2 py-2"
           onClick={() => navigattoproductDetails(_id)}
         >
           Update

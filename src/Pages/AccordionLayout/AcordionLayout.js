@@ -6,9 +6,9 @@ const AcordionLayout = ({ title, children, index, activeIndex, setActiveIndex })
     const handleSetIndex = (index) => (activeIndex !== index) && setActiveIndex(index);
     return (
         <>
-        <div onClick={() => handleSetIndex(index)} className='flex w-1/2 justify-between p-2 mt-2 rounded bg-green-400'>
+        <div onClick={() => handleSetIndex(index)} className='flex w-1/2 justify-between p-2 mt-2 rounded bg-rose-200'>
             <div className='flex'>
-                <div className='text-white font-bold'>{title}</div>
+                <div className='text-grey-500 font-bold'>{title}</div>
             </div>
             <div className="flex items-center justify-center">
                 {

@@ -39,7 +39,7 @@ const Products = () => {
            ))}
          </div>
          <Link to="/manageitems">
-           <button className="mx-5 bg-orange-600 text-white rounded-md px-2 py-2">
+           <button className="mx-5 my-4 bg-rose-500 text-white rounded-md px-2 py-2">
              Manage Items
            </button>
          </Link>

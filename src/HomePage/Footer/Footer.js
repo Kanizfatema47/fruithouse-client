@@ -1,12 +1,13 @@
 import React from 'react';
-
+import './Footer.css'
 const Footer = () => {
     return (
 
-        <footer className="text-center bg-gray-900 text-white">
+        <footer>
+            <div className="text-center  mt-20 text-black">
             <div className="container px-6 pt-6">
                 <div className="flex justify-center text-center mb-6">
-                    <a href="#!" type="button" className="  rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                    <a href="https://www.facebook.com/" type="button" className="  rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                         <svg aria-hidden="true"
                             focusable="false"
                             data-prefix="fab"
@@ -22,7 +23,7 @@ const Footer = () => {
                             ></path>
                         </svg>                        </a>
 
-                    <a href="#!" type="button" className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                    <a href="https://www.twitter.com/" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                         <svg aria-hidden="true"
                             focusable="false"
                             data-prefix="fab"
@@ -39,7 +40,7 @@ const Footer = () => {
                         </svg>
                     </a>
 
-                    <a href="#!" type="button" className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                    <a href="https://www.google.com/" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                         <svg aria-hidden="true"
                             focusable="false"
                             data-prefix="fab"
@@ -56,7 +57,7 @@ const Footer = () => {
                         </svg>
                     </a>
 
-                    <a href="#!" type="button" className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                    <a href="https://www.instagram.com/" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                         <svg aria-hidden="true"
                             focusable="false"
                             data-prefix="fab"
@@ -73,7 +74,7 @@ const Footer = () => {
                         </svg>
                     </a>
 
-                    <a href="#!" type="button" className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                    <a href="#!" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                         <svg aria-hidden="true"
                             focusable="false"
                             data-prefix="fab"
@@ -90,7 +91,7 @@ const Footer = () => {
                         </svg>
                     </a>
 
-                    <a href="#!" type="button" className="rounded-full border-2 border-white text-white leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
+                    <a href="#!" type="button" className="rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                         <svg aria-hidden="true"
                             focusable="false"
                             data-prefix="fab"
@@ -115,9 +116,7 @@ const Footer = () => {
 
                     <div className="mb-6 text-left">
                         <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt distinctio earum
-                            repellat quaerat voluptatibus placeat nam, commodi optio pariatur est quia magnam
-                            eum harum corrupti dicta, aliquam sequi voluptate quas.
+                        Multiple solutions to manage the fresh fruit, vegetables and greens of Coto in its warehouse
                         </p>
                     </div>
 
@@ -128,16 +127,16 @@ const Footer = () => {
 
                         <ul className="list-none mb-0">
                             <li>
-                                <a href="#!" className="text-white">Link 1</a>
+                                <a href="#!" className="text-black">Link 1</a>
                             </li>
                             <li>
-                                <a href="#!" className="text-white">Link 2</a>
+                                <a href="#!" className="text-black">Link 2</a>
                             </li>
                             <li>
-                                <a href="#!" className="text-white">Link 3</a>
+                                <a href="#!" className="text-black">Link 3</a>
                             </li>
                             <li>
-                                <a href="#!" className="text-white">Link 4</a>
+                                <a href="#!" className="text-black">Link 4</a>
                             </li>
                         </ul>
                     </div>
@@ -146,16 +145,16 @@ const Footer = () => {
 
                         <ul className="list-none mb-0">
                             <li>
-                                <a href="#!" className="text-white">Terms & Conditions</a>
+                                <a href="#!" className="text-black">Terms & Conditions</a>
                            </li>
                             <li>
-                                <a href="#!" className="text-white">Return Policy</a>
+                                <a href="#!" className="text-black">Return Policy</a>
                             </li>
                             <li>
-                                <a href="#!" className="text-white">Accessibility</a>
+                                <a href="#!" className="text-black">Accessibility</a>
                             </li>
                             <li>
-                                <a href="#!" className="text-white">Privacy </a>
+                                <a href="#!" className="text-black">Privacy </a>
                             </li>
                         </ul>
                     </div>
@@ -173,9 +172,10 @@ const Footer = () => {
 
             <div className="text-center p-4">
                 © 2021 Copyright:
-                <a className="text-white" href="https://tailwind-elements.com/">Tailwind Elements</a>
+                <a className="text-black" href="https://tailwind-elements.com/">Tailwind Elements</a>
             </div>
 
+        </div>
         </footer>
 
     );

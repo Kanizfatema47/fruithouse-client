@@ -1,22 +1,35 @@
 import { Disclosure } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import { signOut } from 'firebase/auth';
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Header = () => {
 
-  function classNames(...classes) {
-    return classes.filter(Boolean).join(" ");
-  }
+  // function classNames(...classes) {
+  //   return classes.filter(Boolean).join(" ");
+  // }
+  // const [navbar, setNavbar] = useState(false)
+
+  //   const changeBackground = () => {
+  //       if (window.scrollY >= 80) {
+  //           setNavbar(true)
+  //       }
+  //       else {
+  //           setNavbar(false)
+  //       }
+
+  //   }
+  //   window.addEventListener('scroll', changeBackground);
 
     const [user] = useAuthState(auth);
 
   return (
-    <div>
-      <Disclosure as="nav" className="bg-gray-800">
+    <>
+    <header className='bg-rose-500'>
+      <Disclosure as="nav" className="">
           {({ open }) => (
             <>
               <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -47,7 +60,7 @@ const Header = () => {
                       <div className="flex space-x-4">
                         <Link to="/">
                           <span
-                            className="text-gray-300 hover:bg-gray-700 hover:text-white block
+                            className="text-gray-300 hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                           >
                             Home
@@ -55,7 +68,7 @@ const Header = () => {
                         </Link>
                         <Link to="/blogs">
                           <span
-                            className="text-gray-300 hover:bg-gray-700 hover:text-white block
+                            className="text-gray-300 hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                           >
                             Blog
@@ -65,7 +78,7 @@ const Header = () => {
                         {user ? (
                           <Link to="/manageitems">
                             <span
-                              className="text-gray-300 hover:bg-gray-700 hover:text-white block
+                              className="text-gray-300 hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                             >
                               Manage Items
@@ -78,7 +91,7 @@ const Header = () => {
                         {user ? (
                           <Link to="/manageitems">
                             <span
-                              className="text-gray-300 hover:bg-gray-700 hover:text-white block
+                              className="text-gray-300 hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                             >
                               Manage Items
@@ -91,7 +104,7 @@ const Header = () => {
                         {user ? (
                           <Link to="/myitems">
                             <span
-                              className="text-gray-300 hover:bg-gray-700 hover:text-white block
+                              className="text-gray-300 hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                             >
                               MyItems
@@ -104,7 +117,7 @@ const Header = () => {
                         {!user ? (
                           <Link to="/register">
                             <span
-                              className="text-gray-300 hover:bg-gray-700 hover:text-white block
+                              className="text-gray-300 hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                             >
                               Register
@@ -117,7 +130,7 @@ const Header = () => {
                         {!user ? (
                           <Link to="/login">
                             <span
-                              className="text-gray-300 hover:bg-gray-700 hover:text-white block
+                              className="text-gray-300 hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                             >
                               Login
@@ -125,7 +138,7 @@ const Header = () => {
                           </Link>
                         ) : (
                           <button
-                            className="text-gray-300 hover:bg-gray-700 hover:text-white block
+                            className="text-gray-300 hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                             onClick={() => signOut(auth)}
                           >
@@ -221,7 +234,9 @@ const Header = () => {
             </>
           )}
         </Disclosure>
-    </div>
+    </header>
+    
+    </>
   );
 };
 

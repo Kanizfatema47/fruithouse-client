@@ -1,21 +1,26 @@
 import { LockClosedIcon } from '@heroicons/react/outline';
-import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import SocialIcons from '../SocialIcons/SocialIcons';
 import auth from '../../../firebase.init';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-
+import cherry from '../images/cherry.png'
 
 const SignUp = () => {
 
-    
+
     const nameRef = useRef()
     const emailRef = useRef();
     const passwordRef = useRef()
 
+    const [accept, setAccept] = useState(false)
+    const navigate = useNavigate()
 
-    const [createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth, {sendEmailVerification: true});
-
+    const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+    
+    if (user) {
+        navigate('/blogs');
+    }
     const handleSubmit = (e) => {
         e.preventDefault();
         const name = nameRef.current.value;
@@ -27,13 +32,13 @@ const SignUp = () => {
 
     return (
         <>
-           
+
             <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-md w-full space-y-8">
                     <div>
                         <img
                             className="mx-auto h-12 w-auto"
-                            src="https://pixabay.com/get/g7bc03c4b4fb36d95ecffd81d98028c535c8df650ed1f719fede66954e690d1958810fb22834be6de58e53dab0798df875021e066bf82cdd00dd9f9f50df78c765a4f8fd389bd8465d1e61f4fdf8215db_640.png"
+                            src={cherry}
                             alt="Workflow"
                         />
                         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Create Account</h2>
@@ -90,16 +95,16 @@ const SignUp = () => {
                             </div>
                         </div>
 
-                        
+
                         <div class="form-check">
-                            <input className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="checkbox" value="" id="flexCheckChecked" />
-                                <label className="form-check-label inline-block text-gray-800" for="">
-                                    I agree all statements in terms of service
-                                </label>
-                            
+                            <input onClick={() => setAccept(!accept)} className="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-default " type="checkbox" value="" id="flexCheckChecked" />
+                            <label className={`form-check-label inline-block text-gray-800 ${accept ? '' : 'bg-red-500'} `} for="">
+                                I agree all statements in terms of service
+                            </label>
+
                         </div>
                         <div>
-                            <button
+                            <button disabled={!accept}
                                 type="submit"
                                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                             >
@@ -109,15 +114,15 @@ const SignUp = () => {
                                 Sign in
                             </button>
                         </div>
-                        </form>
-                        <p>Or Sign Up with</p>
-                        <SocialIcons>
+                    </form>
+                    <p>Or Sign Up with</p>
+                    <SocialIcons>
 
-                        </SocialIcons>
-                        <div>
-                            <p>Have already an account? <Link to='/login' className="font-medium text-indigo-600 hover:text-indigo-500">Login Here</Link></p>
-                        </div>
-                  
+                    </SocialIcons>
+                    <div>
+                        <p>Have already an account? <Link to='/login' className="font-medium text-indigo-600 hover:text-indigo-500">Login Here</Link></p>
+                    </div>
+
                 </div>
             </div>
         </>

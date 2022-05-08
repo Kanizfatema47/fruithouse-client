@@ -21,6 +21,24 @@ const Accordion = () => {
           >
             This is Accordion 2 Content    
           </AccordionLayout>
+
+          <AccordionLayout 
+            title="Accordion 3"
+            index={3}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+          >
+            This is Accordion 2 Content    
+          </AccordionLayout>
+
+          <AccordionLayout 
+            title="Accordion 4"
+            index={4}
+            activeIndex={activeIndex}
+            setActiveIndex={setActiveIndex}
+          >
+            This is Accordion 2 Content    
+          </AccordionLayout>
       </div>
     );
 };

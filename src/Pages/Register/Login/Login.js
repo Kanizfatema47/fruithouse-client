@@ -5,7 +5,7 @@ import SocialIcons from '../SocialIcons/SocialIcons';
 import auth from '../../../firebase.init';
 import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
-
+import cherry from '../images/cherry.png'
 
 
 const Login = () => {
@@ -40,6 +40,16 @@ const Login = () => {
     errorElement = <p className="text-red">Error: {error?.message}</p>;
   }
 
+
+
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    signInWithEmailAndPassword(email, password)
+  }
+
   const notify = async () => {
     const email = emailRef.current.value;
 
@@ -52,16 +62,6 @@ const Login = () => {
     }
   }
 
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const email = emailRef.current.value;
-    const password = passwordRef.current.value;
-    signInWithEmailAndPassword(email, password)
-  }
-
-
-
   return (
     <>
 
@@ -70,7 +70,7 @@ const Login = () => {
           <div>
             <img
               className="mx-auto h-12 w-auto"
-              src="https://pixabay.com/get/g9f9c1a3cae8dc5c8111c418588365f054f7c5036017c3870723499ae2d7fb36b63006ccbf5148c66c32aad8cbc66f517dacd9946de1b7dd7f5ec6141700593189afe9ab42b8ad48f9029c9b26fd6d6af_640.jpg"
+              src={cherry}
               alt="Workflow"
             />
             <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
@@ -142,7 +142,7 @@ const Login = () => {
             </div>
           </form>
           <div className="text-sm">
-                <button onClick={notify} className="font-medium text-indigo-600 hover:text-indigo-500">
+                <button onClick={notify} className="btn btn-link font-medium text-indigo-600 hover:text-indigo-500">
                   Forgot your password?
                 </button>
               </div>
