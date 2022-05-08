@@ -114,6 +114,17 @@ const Header = () => {
                           <span></span>
                         )}
 
+
+                        <Link to="/contact">
+                          <span
+                            className="text-gray-300 hover:bg-rose-700 hover:text-white block
+                    px-3 py-2 rounded-md text-base font-medium"
+                          >
+                            Contact Us
+                          </span>
+                        </Link>
+
+                        
                         {!user ? (
                           <Link to="/register">
                             <span

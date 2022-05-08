@@ -10,14 +10,15 @@ import Accordion from './Pages/Accordion/Accordion';
 import SignUp from './Pages/Register/SignUp/SignUp';
 import Inventory from './Pages/Inventory/Inventory';
 import RequireAuth from './components/RequireAuth/RequireAuth';
+import ContactUs from './HomePage/ContactUs/ContactUs';
 function App() {
   return (
     <div className="App">
       <Header></Header>
+
       
       <Routes>
         <Route path='/' element={<Home></Home>}/>
-        <Route path='/blogs' element={<Accordion></Accordion>}/>
         <Route path='/blogs' element={<Accordion></Accordion>}/>
         <Route path='/products' element={<Products></Products>}/>
         <Route path='/manageitems/:id' element={
@@ -25,6 +26,7 @@ function App() {
             <Inventory></Inventory>
           </RequireAuth>
         }/>
+        <Route path='/contact' element={<ContactUs></ContactUs>}/>
         <Route path='/login' element={<Login></Login>}/>
         <Route path='/register' element={<SignUp></SignUp>}/>
         <Route path='*' element={<ErrorPage></ErrorPage>}></Route>

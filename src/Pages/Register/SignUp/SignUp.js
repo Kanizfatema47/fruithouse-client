@@ -3,7 +3,6 @@ import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import SocialIcons from '../SocialIcons/SocialIcons';
 import auth from '../../../firebase.init';
-import 'react-toastify/dist/ReactToastify.css';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import cherry from '../images/cherry.png'
 
