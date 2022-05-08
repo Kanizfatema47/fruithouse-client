@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import UseProductDetails from '../../components/Hook/UseProductDetails/UseProductDetails';
 
 const Inventory = () => {
        const { id } = useParams();
-       const [product , setProducts] = useState({});
 
-       useEffect(() => {
-        fetch('fakeData.json')
-        .then(res => res.json())
-        .then(data => {
-            data.find(setProducts(item => (
-                item.id === id 
-            )))
-        })
-      },[])
+
+       const [product] = UseProductDetails(id);
+      //  const [product , setProducts] = useState({});
+
+      //  useEffect(() => {
+      //   fetch('fakeData.json')
+      //   .then(res => res.json())
+      //   .then(data => {
+      //       data.find(setProducts(item => (
+      //           item.id === id 
+      //       )))
+      //   })
+      // },[])
     
 
 

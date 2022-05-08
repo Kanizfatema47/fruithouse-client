@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const ProductDtails = ({product}) => {
-    const {id,name,img,price,quantity,description} = product;
+    const {_id,name,img,price,quantity,description} = product;
 
      const navigate = useNavigate();
 
@@ -32,7 +32,7 @@ const ProductDtails = ({product}) => {
 
         <button
           className=" mb-3 bg-orange-600 text-white rounded-md px-2 py-2"
-          onClick={() => navigattoproductDetails(id)}
+          onClick={() => navigattoproductDetails(_id)}
         >
           Update
         </button>

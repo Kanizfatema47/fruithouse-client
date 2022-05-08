@@ -1,15 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import UseProducts from '../../components/Hook/UseProducts/UseProducts';
 import ProductDtails from '../ProductDetails/ProductDtails';
 
 const Products = () => {
-    const [products , setProducts] = useState([]);
+    // const [products , setProducts] = useState([]);
 
-    useEffect(() => {
-      fetch('fakeData.json')
-      .then(res => res.json())
-      .then(data => setProducts(data))
-    },[])
+    // useEffect(() => {
+    //   fetch('fakeData.json')
+    //   .then(res => res.json())
+    //   .then(data => setProducts(data))
+    // },[])
+
+    const [products , setProducts] = UseProducts();
 
     return (
         // <div class="flex justify-center">

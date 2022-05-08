@@ -9,6 +9,7 @@ import Home from './HomePage/Home/Home'
 import Accordion from './Pages/Accordion/Accordion';
 import SignUp from './Pages/Register/SignUp/SignUp';
 import Inventory from './Pages/Inventory/Inventory';
+import RequireAuth from './components/RequireAuth/RequireAuth';
 function App() {
   return (
     <div className="App">
@@ -19,7 +20,11 @@ function App() {
         <Route path='/blogs' element={<Accordion></Accordion>}/>
         <Route path='/blogs' element={<Accordion></Accordion>}/>
         <Route path='/products' element={<Products></Products>}/>
-        <Route path='/manageitems/:id' element={<Inventory></Inventory>}/>
+        <Route path='/manageitems/:id' element={
+          <RequireAuth>
+            <Inventory></Inventory>
+          </RequireAuth>
+        }/>
         <Route path='/login' element={<Login></Login>}/>
         <Route path='/register' element={<SignUp></SignUp>}/>
         <Route path='*' element={<ErrorPage></ErrorPage>}></Route>
