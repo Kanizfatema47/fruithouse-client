@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css'
+import logo from '../../images/logo.png'
 const Footer = () => {
     return (
 
@@ -114,8 +115,9 @@ const Footer = () => {
                 <div className=" grid mt-4 lg:grid-cols-4 ml-20 md:grid-cols-2">
 
 
-                    <div className="mb-6 text-left">
-                        <p>
+                    <div className="mb-6 text-center h-52 grid grid-cols-1">
+                        <img src={logo} alt="" className='w-16 text-center mx-auto'/>
+                        <p className='mb-20'>
                         Multiple solutions to manage the fresh fruit, vegetables and greens of Coto in its warehouse
                         </p>
                     </div>
@@ -127,16 +129,16 @@ const Footer = () => {
 
                         <ul className="list-none mb-0">
                             <li>
-                                <a href="#!" className="text-black">Link 1</a>
+                                <a href="/" className="text-black">Home</a>
                             </li>
                             <li>
-                                <a href="#!" className="text-black">Link 2</a>
+                                <a href="/blogs" className="text-black">Blogs</a>
                             </li>
                             <li>
-                                <a href="#!" className="text-black">Link 3</a>
+                                <a href="/contact" className="text-black">Contact US</a>
                             </li>
                             <li>
-                                <a href="#!" className="text-black">Link 4</a>
+                                <a href="/login" className="text-black">Login</a>
                             </li>
                         </ul>
                     </div>
@@ -170,9 +172,9 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="text-center p-4">
-                © 2021 Copyright:
-                <a className="text-black" href="https://tailwind-elements.com/">Tailwind Elements</a>
+            <div className="text-center p-4 ">
+                &copy; 2022 Copyright:
+                <a className="text-black" href="/">Fruit Warehouse</a>
             </div>
 
         </div>

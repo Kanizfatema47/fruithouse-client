@@ -11,6 +11,7 @@ import SignUp from './Pages/Register/SignUp/SignUp';
 import Inventory from './Pages/Inventory/Inventory';
 import RequireAuth from './components/RequireAuth/RequireAuth';
 import ContactUs from './HomePage/ContactUs/ContactUs';
+import AddItems from './Pages/AddItems/AddItems';
 function App() {
   return (
     <div className="App">
@@ -26,6 +27,12 @@ function App() {
             <Inventory></Inventory>
           </RequireAuth>
         }/>
+         <Route path='/additems' element={
+          <RequireAuth>
+            <AddItems></AddItems>
+          </RequireAuth>
+        }/>
+        
         <Route path='/contact' element={<ContactUs></ContactUs>}/>
         <Route path='/login' element={<Login></Login>}/>
         <Route path='/register' element={<SignUp></SignUp>}/>

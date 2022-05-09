@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import UseProductDetails from '../../components/Hook/UseProductDetails/UseProductDetails';
 
 const Inventory = () => {
@@ -23,7 +23,8 @@ const Inventory = () => {
 
    
     return (
-      <div className="lg:w-1/2 lg:mx-auto my-5 px-5 py-5 border-solid border-2 sm:mx-5">
+     <div>
+        <div className="lg:w-1/2 lg:mx-auto my-5 px-5 py-5 border-solid border-2 sm:mx-5">
         <h1 className="text-2xl ">Product Information</h1>
         <div>
           <img src={product.img} alt="item" />
@@ -46,11 +47,18 @@ const Inventory = () => {
             <strong>Price : </strong>
             {product.price}
           </p>
-          <button >
+          <button className='text-lg rounded font-bold bg-rose-400 px-5 py-3 my-3'>
             Delivered
           </button>
         </div>
+       
       </div>
+      <Link to='/additems'>
+      <button  className='text-lg rounded font-bold bg-rose-400 px-5 py-3 my-3'>
+            Add items
+          </button></Link>
+     </div>
+       
     );
 };
 

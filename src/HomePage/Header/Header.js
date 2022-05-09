@@ -5,7 +5,7 @@ import React, { useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
-
+import logo from '../../images/logo.png'
 const Header = () => {
 
   // function classNames(...classes) {
@@ -28,7 +28,7 @@ const Header = () => {
 
   return (
     <>
-    <header className='bg-rose-500'>
+    <header className='bg-rose-500 h-20 '>
       <Disclosure as="nav" className="">
           {({ open }) => (
             <>
@@ -48,20 +48,20 @@ const Header = () => {
                       )}
                     </Disclosure.Button>
                   </div>
-                  <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
+                  <div className="flex-1 flex  items-center justify-center sm:items-stretch sm:justify-start">
                     <div className="flex-shrink-0 flex items-center">
                       <img
-                        className=" lg:block h-8 w-auto"
-                        src=""
+                        className=" lg:block h-20 w-auto"
+                        src={logo}
                         alt="Workflow"
                       />
                     </div>
                     <div className="hidden sm:block sm:ml-auto">
-                      <div className="flex space-x-4">
+                      <div className="flex items-center space-x-4">
                         <Link to="/">
                           <span
                             className="text-gray-300 hover:bg-rose-700 hover:text-white block
-                    px-3 py-2 rounded-md text-base font-medium"
+                              px-3 py-2 rounded-md text-base font-medium"
                           >
                             Home
                           </span>
@@ -75,18 +75,7 @@ const Header = () => {
                           </span>
                         </Link>
 
-                        {user ? (
-                          <Link to="/manageitems">
-                            <span
-                              className="text-gray-300 hover:bg-rose-700 hover:text-white block
-                    px-3 py-2 rounded-md text-base font-medium"
-                            >
-                              Manage Items
-                            </span>
-                          </Link>
-                        ) : (
-                          <span></span>
-                        )}
+                       
 
                         {user ? (
                           <Link to="/manageitems">
