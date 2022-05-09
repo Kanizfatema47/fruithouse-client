@@ -4,9 +4,9 @@ import logo from '../../images/logo.png'
 const Footer = () => {
     return (
 
-        <footer>
+        <footer className='text-center'>
             <div className="text-center  mt-20 text-black">
-            <div className="container px-6 pt-6">
+            <div className="container pt-6">
                 <div className="flex justify-center text-center mb-6">
                     <a href="https://www.facebook.com/" type="button" className="  rounded-full border-2 border-black text-black leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1">
                         <svg aria-hidden="true"
@@ -112,7 +112,7 @@ const Footer = () => {
 
 
 
-                <div className=" grid mt-4 lg:grid-cols-4 ml-20 md:grid-cols-2">
+                <div className=" grid mt-4 lg:grid-cols-4  md:grid-cols-2">
 
 
                     <div className="mb-6 text-center h-52 grid grid-cols-1">
@@ -163,7 +163,7 @@ const Footer = () => {
                     <div className="mb-6 text-center">
                         <h5 className="uppercase font-bold mb-2.5">Our info</h5>
 
-                        <div className='text-left'>
+                        <div className='text-center'>
                         <p>+ 88 018 4113 6251</p>
                         <p>info@cannabify.com</p>
                         <p>Sidestate NSW 4132, Australia</p>

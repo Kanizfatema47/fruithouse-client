@@ -36,7 +36,7 @@ const ContactUs = () => {
                 <div
                     className="mb-5 flex mx-auto  text-right max-w-md"
                 >
-                    <h2 className="text-gray-700 ml-20 dark:text-gray-200 text-3xl font-bold"> Contact With Us</h2>
+                    <h2 className="text-gray-700 ml-20 sm:ml-32 dark:text-gray-200 text-3xl font-bold"> Contact Us</h2>
                 </div>
                 <div
                     className="flex flex-col lg:flex-row lg:items-center text-slate-900 dark:text-gray-200 lg:justify-between -mx-4"
@@ -49,7 +49,7 @@ const ContactUs = () => {
                         <div
                             className="max-w-[570px] mb-12 lg:mb-0"
                         >
-                            <p className=" text-xl font-bold text-body-color leading-relaxed stand__out__text mb-9 mx-5">
+                            <p className=" text-xl font-bold text-body-color leading-relaxed stand__out__text mb-9 ">
                                 Special Fruit is located in the transportation zone in Meer, zone B7, by the E19 Antwerp-Breda and at the border between Belgium and the Netherlands.
 
                             </p>

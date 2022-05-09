@@ -60,15 +60,15 @@ const Header = () => {
                       <div className="flex items-center space-x-4">
                         <Link to="/">
                           <span
-                            className="text-gray-300 hover:bg-rose-700 hover:text-white block
-                              px-3 py-2 rounded-md text-base font-medium"
+                            className="text-white hover:bg-rose-700 hover:text-white block
+                              px-3 py-2 rounded-md text-base font-medium "
                           >
                             Home
                           </span>
                         </Link>
                         <Link to="/blogs">
                           <span
-                            className="text-gray-300 hover:bg-rose-700 hover:text-white block
+                            className="text-white hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                           >
                             Blog
@@ -80,7 +80,7 @@ const Header = () => {
                         {user ? (
                           <Link to="/addinventory">
                             <span
-                              className="text-gray-300 hover:bg-rose-700 hover:text-white block
+                              className="text-white hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                             >
                               Manage Items
@@ -93,7 +93,7 @@ const Header = () => {
                         {user ? (
                           <Link to="/myitems">
                             <span
-                              className="text-gray-300 hover:bg-rose-700 hover:text-white block
+                              className="text-white hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                             >
                               MyItems
@@ -106,7 +106,7 @@ const Header = () => {
 
                         <Link to="/contact">
                           <span
-                            className="text-gray-300 hover:bg-rose-700 hover:text-white block
+                            className="text-white hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                           >
                             Contact Us
@@ -117,7 +117,7 @@ const Header = () => {
                         {!user ? (
                           <Link to="/register">
                             <span
-                              className="text-gray-300 hover:bg-rose-700 hover:text-white block
+                              className="text-white hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                             >
                               Register
@@ -130,7 +130,7 @@ const Header = () => {
                         {!user ? (
                           <Link to="/login">
                             <span
-                              className="text-gray-300 hover:bg-rose-700 hover:text-white block
+                              className="text-white hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                             >
                               Login
@@ -138,7 +138,7 @@ const Header = () => {
                           </Link>
                         ) : (
                           <button
-                            className="text-gray-300 hover:bg-rose-700 hover:text-white block
+                            className="text-white hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                             onClick={() => signOut(auth)}
                           >
@@ -151,14 +151,14 @@ const Header = () => {
                 </div>
               </div>
 
-              <Disclosure.Panel className="sm:hidden">
-                <div className="px-2 pt-2 pb-3 space-y-1">
-                  <Disclosure.Button>
-                    {/* "text-gray-300 hover:bg-gray-700 hover:text-white", "block
+              <Disclosure.Panel className="sm:hidden mx-auto text-center">
+                <div className="px-2 pt-3 pb-3 space-y-1 ">
+                  <Disclosure.Button className='flex flex-row' >
+                    {/* "text-black hover:bg-gray-700 hover:text-white", "block
                     px-3 py-2 rounded-md text-base font-medium" */}
                     <Link to="/">
                       <span
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white block
+                        className="text-black hover:bg-gray-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                       >
                         Home
@@ -166,7 +166,7 @@ const Header = () => {
                     </Link>
                     <Link to="/blog">
                       <span
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white block
+                        className="text-black hover:bg-gray-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                       >
                         Blog
@@ -176,7 +176,7 @@ const Header = () => {
                     {user ? (
                       <Link to="/manageinventory">
                         <span
-                          className="text-gray-300 hover:bg-gray-700 hover:text-white block
+                          className="text-black hover:bg-gray-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                         >
                           Manage-Inventory
@@ -188,7 +188,7 @@ const Header = () => {
                     {user ? (
                       <Link to="/myitems">
                         <span
-                          className="text-gray-300 hover:bg-gray-700 hover:text-white block
+                          className="text-black hover:bg-gray-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                         >
                           MyItems
@@ -201,7 +201,7 @@ const Header = () => {
                     {!user ? (
                       <Link to="/register">
                         <span
-                          className="text-gray-300 hover:bg-gray-700 hover:text-white block
+                          className="text-black hover:bg-gray-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                         >
                           Register
@@ -214,7 +214,7 @@ const Header = () => {
                     {!user ? (
                       <Link to="/login">
                         <span
-                          className="text-gray-300 hover:bg-gray-700 hover:text-white block
+                          className="text-black hover:bg-gray-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
                         >
                           Login
@@ -222,7 +222,7 @@ const Header = () => {
                       </Link>
                     ) : (
                       <button
-                        className=" text-gray-300 hover:bg-gray-700 hover:text-white "
+                        className=" text-black hover:bg-gray-700 hover:text-white "
                         onClick={() => signOut(auth)}
                       >
                         Logout
