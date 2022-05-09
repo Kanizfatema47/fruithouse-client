@@ -7,6 +7,7 @@ const Inventory = () => {
 
 
        const [product] = UseProductDetails(id);
+
       //  const [product , setProducts] = useState({});
 
       //  useEffect(() => {
@@ -19,7 +20,36 @@ const Inventory = () => {
       //   })
       // },[])
     
+const [quantity, setQuantity] = useState();
 
+         useEffect(() => {
+           setQuantity(product.quantity);
+         }, [product]);
+
+
+         const reduceQuantity = (id) => {
+
+          setQuantity(quantity - 1);
+
+           const updatedquantity = { quantity };
+
+
+           const url =` http://localhost:8000/reduce/${id}`;
+           fetch(url, {
+             method: "PUT",
+             headers: {
+               "Content-Type": "application/json",
+             },
+             body: JSON.stringify(updatedquantity),
+           })
+             .then((res) => res.json())
+             .then((data) => {
+               console.log("succes", data);
+             });
+
+     
+
+     };
 
    
     return (
@@ -37,7 +67,7 @@ const Inventory = () => {
           </p>
           <p>
             <strong>Quantity :</strong>
-            {product.quantity}
+            {quantity}
           </p>
           <p>
             <strong>Supplier name :</strong>
@@ -47,7 +77,7 @@ const Inventory = () => {
             <strong>Price : </strong>
             {product.price}
           </p>
-          <button className='text-lg rounded font-bold bg-rose-400 px-5 py-3 my-3'>
+          <button onClick={() => reduceQuantity(product._id)} className='text-lg rounded font-bold bg-rose-400 px-5 py-3 my-3'>
             Delivered
           </button>
         </div>
