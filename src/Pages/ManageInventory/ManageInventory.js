@@ -3,6 +3,24 @@ import { Link } from 'react-router-dom';
 import UseProducts from '../../components/Hook/UseProducts/UseProducts';
 
 const ManageInventory = () => {
+  const handleDelete = (id) => {
+    const proceed = window.confirm("Are you sure you want to delete?");
+    if (proceed) {
+      const url = `http://localhost:8000/product/${id}`;
+      fetch(url, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((result) => {
+          const remaining = products.filter(
+            (item) => item._id !== id
+          );
+          setProducts(remaining);
+        });
+    }
+  };
+
+
     const [products, setProducts] = UseProducts();
     return (
         <div>
@@ -27,7 +45,7 @@ const ManageInventory = () => {
                 <strong>Price :</strong>
                 {items.price}$
               </span>
-              <button className="flex mb-3 bg-orange-600 text-white rounded-md px-2 py-2 w-1/2" >
+              <button onClick={()=> handleDelete(items._id)} className="flex mb-3 bg-orange-600 text-white rounded-md px-2 py-2 w-1/2" >
                 Delete
               </button>
             </div>

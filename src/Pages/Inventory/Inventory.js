@@ -134,7 +134,7 @@ const Inventory = () => {
             ref={amountref}
           />
           <button
-            className="flex mb-3 bg-orange-600 text-white rounded-md px-2 py-2 w-1/4"
+            className="flex mb-3 bg-orange-600 text-white rounded-md px-2 py-2 lg:w-1/4"
             type="submit"
           >
             Submit
@@ -143,10 +143,12 @@ const Inventory = () => {
       </div>
 
 
+      <div className='mx-auto text-center'>
       <Link to='/additems'>
-        <button className='text-lg rounded font-bold bg-rose-400 px-5 py-3 my-3'>
+        <button className=' text-lg rounded font-bold  bg-rose-400 px-5 py-3 my-3'>
           Add items
         </button></Link>
+      </div>
     </div>
 
   );

@@ -28,9 +28,9 @@ const Login = () => {
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth)
   const navigate = useNavigate();
 
-  if (user && !error) {
-    navigate('/');
-  }
+  // if (user && !error) {
+  //   navigate('/');
+  // }
 
   if (loading) {
     return <Loading></Loading>;
@@ -41,7 +41,9 @@ const Login = () => {
     errorElement = <p className="text-red">Error: {error?.message}</p>;
   }
 
-
+  if (user) {
+    navigate(from, { replace: true });
+  }
 
 
   const handleSubmit = async (event) => {

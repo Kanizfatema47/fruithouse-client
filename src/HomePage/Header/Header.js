@@ -49,12 +49,13 @@ const Header = () => {
                     </Disclosure.Button>
                   </div>
                   <div className="flex-1 flex  items-center justify-center sm:items-stretch sm:justify-start">
-                    <div className="flex-shrink-0 flex items-center">
+                    <div className="flex-shrink-0 flex items-center flex-row">
                       <img
                         className=" lg:block h-20 w-auto"
                         src={logo}
                         alt="Workflow"
                       />
+                      <p className='text-xl font-bold text-green-900'>Fruit House</p>
                     </div>
                     <div className="hidden sm:block sm:ml-auto">
                       <div className="flex items-center space-x-4">
