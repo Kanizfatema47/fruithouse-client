@@ -1,60 +1,96 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect,  useState } from 'react';
+import { useRef  } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import UseProductDetails from '../../components/Hook/UseProductDetails/UseProductDetails';
 
 const Inventory = () => {
-       const { id } = useParams();
+  const { id } = useParams();
 
 
-       const [product] = UseProductDetails(id);
+  const [product] = UseProductDetails(id);
 
-      //  const [product , setProducts] = useState({});
+  //  const [product , setProducts] = useState({});
 
-      //  useEffect(() => {
-      //   fetch('fakeData.json')
-      //   .then(res => res.json())
-      //   .then(data => {
-      //       data.find(setProducts(item => (
-      //           item.id === id 
-      //       )))
-      //   })
-      // },[])
-    
-const [quantity, setQuantity] = useState();
+  //  useEffect(() => {
+  //   fetch('fakeData.json')
+  //   .then(res => res.json())
+  //   .then(data => {
+  //       data.find(setProducts(item => (
+  //           item.id === id 
+  //       )))
+  //   })
+  // },[])
 
-         useEffect(() => {
-           setQuantity(product.quantity);
-         }, [product]);
+  const [quantity, setQuantity] = useState();
 
-
-         const reduceQuantity = (id) => {
-
-          setQuantity(quantity - 1);
-
-           const updatedquantity = { quantity };
+  useEffect(() => {
+    setQuantity(product.quantity);
+  }, [product]);
 
 
-           const url =` http://localhost:8000/reduce/${id}`;
-           fetch(url, {
-             method: "PUT",
-             headers: {
-               "Content-Type": "application/json",
-             },
-             body: JSON.stringify(updatedquantity),
-           })
-             .then((res) => res.json())
-             .then((data) => {
-               console.log("succes", data);
-             });
+        // Restock 
 
-     
-
-     };
-
+        const amountref = useRef()
+        const handlerestock = (e,id) => {
+ 
+           e.preventDefault();
+           const number = parseInt(amountref.current.value);
+ 
+           
+           setQuantity(quantity + number);
+ 
+           const increasedquantity = { quantity };
+ 
+            const url = `http://localhost:8000/increase/${id}`;
+            fetch(url, {
+              method: "PUT",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(increasedquantity),
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log("success", data);
+                alert("Quantity updated succesfully");
+              });
    
-    return (
-     <div>
-        <div className="lg:w-1/2 lg:mx-auto my-5 px-5 py-5 border-solid border-2 sm:mx-5">
+    
+        }
+ 
+
+        //
+  const reduceQuantity = (id) => {
+
+    setQuantity(quantity - 1);
+
+    const updatedquantity = { quantity };
+
+
+    const url = ` http://localhost:8000/reduce/${id}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(updatedquantity),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("succes", data);
+      });
+
+
+
+
+
+
+  };
+
+
+  return (
+    <div>
+      <div className="lg:w-1/2 lg:mx-auto my-5 px-5 py-5 border-solid border-2 sm:mx-5">
         <h1 className="text-2xl ">Product Information</h1>
         <div>
           <img src={product.img} alt="item" />
@@ -81,15 +117,39 @@ const [quantity, setQuantity] = useState();
             Delivered
           </button>
         </div>
-       
+
       </div>
+          {/* Restock */}
+
+      <div className="flex flex-col items-center">
+        <h2>Restock Items</h2>
+        <form
+          className="flex flex-col w-1/2 px-5 py-10 mx-5 my-5  border-solid border-2"
+          onSubmit={(e) => handlerestock(e, id)}
+        >
+          <label>Enter number of amount that you want Restock </label>
+          <input
+            type="number"
+            className="border-solid border-2 my-5"
+            ref={amountref}
+          />
+          <button
+            className="flex mb-3 bg-orange-600 text-white rounded-md px-2 py-2 w-1/4"
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+
+
       <Link to='/additems'>
-      <button  className='text-lg rounded font-bold bg-rose-400 px-5 py-3 my-3'>
-            Add items
-          </button></Link>
-     </div>
-       
-    );
+        <button className='text-lg rounded font-bold bg-rose-400 px-5 py-3 my-3'>
+          Add items
+        </button></Link>
+    </div>
+
+  );
 };
 
 export default Inventory;
