@@ -11,4 +11,5 @@
     
     Live site: https://warehouse-e166b.web.app/
     code Link: https://github.com/ProgrammingHeroWC4/warehouse-management-client-side-Kanizfatema47/edit/main/README.md
+    server-side-code-link: https://github.com/ProgrammingHeroWC4/warehouse-management-server-side-Kanizfatema47
     StackOverFlow Link: https://stackoverflow.com/questions/72162841/update-and-delete-items-after-clicking-buttons
