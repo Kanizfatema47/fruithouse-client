@@ -16,7 +16,7 @@ import ManageInventory from './Pages/ManageInventory/ManageInventory';
 import MyItems from './Pages/MyItems/MyItems';
 function App() {
   return (
-    <div className="App">
+    <div >
       <Header></Header>
 
       

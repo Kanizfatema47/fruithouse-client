@@ -7,6 +7,8 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword } from 'react-
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import cherry from '../images/cherry.png'
+import axios from 'axios';
+import Loading from '../../Loading/Loading';
 
 
 const Login = () => {
@@ -26,29 +28,32 @@ const Login = () => {
   const [sendPasswordResetEmail] = useSendPasswordResetEmail(auth)
   const navigate = useNavigate();
 
-  if (user) {
-    navigate('/blogs');
+  if (user && !error) {
+    navigate('/');
   }
 
   if (loading) {
-    return <p>Loading...</p>;
+    return <Loading></Loading>;
   }
 
-  if (user) {
-    navigate(from, { replace: true });
-  }
   if (error) {
+    console.log(error)
     errorElement = <p className="text-red">Error: {error?.message}</p>;
   }
 
 
 
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
-    signInWithEmailAndPassword(email, password)
+    // signInWithEmailAndPassword(email, password)
+    signInWithEmailAndPassword(email, password);
+      const { data } = await axios.post("http://localhost:8000/login", {
+        email,
+      });
+      localStorage.setItem("AccessToken", data.accessToken);
   }
 
   const notify = async () => {

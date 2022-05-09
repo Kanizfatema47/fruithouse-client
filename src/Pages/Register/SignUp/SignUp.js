@@ -19,7 +19,7 @@ const SignUp = () => {
     const [createUserWithEmailAndPassword, user] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
     
     if (user) {
-        navigate('/blogs');
+        navigate('/');
     }
     const handleSubmit = (e) => {
         e.preventDefault();
