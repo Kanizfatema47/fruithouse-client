@@ -38,7 +38,7 @@ const Products = () => {
              <ProductDtails key={items.id} product={items} />
            ))}
          </div>
-         <Link to="/manageitems">
+         <Link to="/addinventory">
            <button className="mx-5 my-4 bg-rose-500 text-white rounded-md px-2 py-2">
              Manage Items
            </button>

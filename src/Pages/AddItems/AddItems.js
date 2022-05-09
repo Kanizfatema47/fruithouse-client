@@ -11,7 +11,7 @@ const AddItems = () => {
    const { register, handleSubmit } = useForm();
    const onSubmit = (data) => {
      console.log(data);
-     const url = "https://localhost:8000/newproduct";
+     const url = "http://localhost:8000/newproduct";
      fetch(url, {
        method: "POST",
        headers: {
@@ -50,7 +50,7 @@ const AddItems = () => {
           <input
           type="email"
             placeholder="Enter Email"
-            value={user.email}
+            // value={user.email}
             className="border-solid border-2 px-3 py-2 lg:w-2/4 block my-3"
             {...register("email")}
           />

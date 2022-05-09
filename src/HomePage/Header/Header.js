@@ -78,7 +78,7 @@ const Header = () => {
                        
 
                         {user ? (
-                          <Link to="/manageitems">
+                          <Link to="/addinventory">
                             <span
                               className="text-gray-300 hover:bg-rose-700 hover:text-white block
                     px-3 py-2 rounded-md text-base font-medium"
